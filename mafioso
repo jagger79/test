@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh rkrejci@mafioso.cz -p44
