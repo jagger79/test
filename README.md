@@ -1,4 +1,4 @@
 test
 ====
 
-my testing repository
+my testing repository MASTER
