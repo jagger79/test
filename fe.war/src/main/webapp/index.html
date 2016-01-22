@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- For example, AngularJS requires only one initialization flag to be switched into the CSP-compatible mode — html ng-app ng-csp -->
+<html ng-app="phonecatApp" ng-csp>
+<head>
+    <title>Poznámkovník</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Set the tab, home page, shortcut icons -->
+    <link rel="Shortcut Icon" href="img/aerogear_icon_16x.png">
+    <link rel="apple-touch-icon" href="img/aerogear_avatar_48px.png"/>
+
+    <!-- For minification, comment out this link -->
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="css/screen.css"/>
+
+  	<link rel="stylesheet" href="css/bootstrap.css">
+  	<link rel="stylesheet" href="css/app.css">
+
+  	<link rel="stylesheet" href="css/animations.css">
+
+  	<!-- Set viewport scaling and zoom features -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<script src="js/libs/angular/angular.min.js"></script>
+  	<script src="js/libs/angular/angular-route.min.js"></script>
+  	<script src="js/libs/angular/angular-resource.min.js"></script>
+  	<script src="js/libs/angular/angular-animate.min.js"></script>
+  	<script src="js/libs/angular/jquery.min.js"></script>
+
+  	<script src="js/libs/modernizr-custom.js"></script>
+  	<script src="js/libs/underscore.js"></script> 
+
+	<!-- application scripts -->
+  	<script src="js/app/app.js"></script>
+  	<script src="js/app/controllers.js"></script>
+  	<script src="js/app/filters.js"></script>
+  	<script src="js/app/services.js"></script>
+  	<script src="js/app/animations.js"></script>
+</head>
+
+<body>
+
+  <div ng-view></div>
+
+</body>
+</html>

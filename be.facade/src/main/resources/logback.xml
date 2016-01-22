@@ -1,0 +1,98 @@
+<!--
+    scan - automaticky reloaduje konfiguraci
+    debug - vypisuje na konzoli hlasky stavu nacitani a inicializace logbacku
+-->
+<configuration debug="true" scan="false" scanPeriod="30 seconds">
+    <!-- pro zamezeni pouziti nazvu v JMX pro vice web kontextu -->
+    <contextName>movies</contextName>
+
+    <!-- Insert the current time formatted as "yyyyMMdd'T'HHmmss" under
+        the key "bySecond" into the logger context. This value will be
+        available to all subsequent configuration elements. -->
+    <timestamp key="bySecond" datePattern="yyyyMMdd'T'HHmmss" />
+
+    <!--
+        slouzi pro konfigurator do JMX
+        <jmxConfigurator />
+    -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+
+<!-- 
+        <filter class="ch.qos.logback.access.filter.CountingFilter">
+            <name>countingFilter</name>
+        </filter>
+         -->
+        <!--
+            filter pro omezeni levelu
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+            </filter>
+        -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date [%thread][%mdc] %-5level %logger.%method{}:%line %msg%n</pattern>
+        </encoder>
+    </appender>
+<!-- 
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<param name="Append" value="false" />
+        <file>/opt/ispop/work/config/production/logs/ispop_production.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+        <fileNamePattern>/opt/ispop/work/config/production/logs/ispop_production.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+        <maxHistory>30</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%date [%thread][%mdc] %-5level %logger.%method{}:%line %msg%n</pattern>
+        </encoder>
+    </appender>
+ -->
+<!--
+    <appender name="ispopDb" class="cz.dain.ispop.core.logging.DatabaseAuditLoggerAppender">
+        <filter class="cz.dain.ispop.core.logging.MarkerFilter">
+	      <OnMatch>ACCEPT</OnMatch>
+		  <OnMismatch>DENY</OnMismatch>
+        </filter>
+    </appender>
+-->
+	<!--
+        <property name="USER_HOME" value="/home/ispop" />
+        <property file="src/main/java/chapters/configuration/variables1.properties" />
+
+        <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${USER_HOME}/myApp.log</file>
+        <encoder>
+        <pattern>%msg%n</pattern>
+        </encoder>
+        </appender>
+
+        <appender name="EclipseLog" class="org.eclipse.m2e.logback.appender.EclipseLogAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+        <level>WARN</level>
+        </filter>
+        </appender>
+
+        <appender name="MavenConsoleLog" class="org.eclipse.m2e.logback.appender.MavenConsoleAppender">
+        </appender>
+    -->
+
+    <logger name="org.hibernate" level="info" />
+	<logger name="org.hibernate.dialect" level="info" />
+    <logger name="org.springframework" level="info" />
+	<!--
+    <logger name="org.springframework.jdbc.core" level="debug" />
+    <logger name="org.dozer" level="info" />
+	-->
+    <logger name="cz" level="debug" />
+
+    <root>
+        <level value="info" />
+        <appender-ref ref="stdout" />
+<!--
+        <appender-ref ref="FILE" />
+        <appender-ref ref="ispopDb" />
+-->
+    </root>
+
+</configuration>

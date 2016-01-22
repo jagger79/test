@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://ws.war.be.movies.rkr.cz/" xmlns:tns="http://ws.war.be.movies.rkr.cz/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="insertAccount" type="tns:insertAccount"/>
+
+  <xs:element name="insertAccountResponse" type="tns:insertAccountResponse"/>
+
+  <xs:complexType name="insertAccount">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="insertAccountResponse">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
+

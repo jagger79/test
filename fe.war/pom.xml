@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>cz.rkr.movies.bom</groupId>
+		<artifactId>fe</artifactId>
+		<version>${project.version}</version>
+		<relativePath>../bom.fe/pom.xml</relativePath>
+	</parent>
+
+	<groupId>cz.rkr.movies.fe</groupId>
+	<artifactId>war</artifactId>
+	<name>${project.groupId}.${project.artifactId}</name>
+	<packaging>war</packaging>
+
+	<build>
+		<finalName>${project.name}-${project.version}</finalName>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.spec.javax.servlet</groupId>
+			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>jaxrs-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.websocket</groupId>
+			<artifactId>jboss-websocket-api_1.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>cz.rkr.movies.be</groupId>
+			<artifactId>facade</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+</project>

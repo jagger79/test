@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:springdata="http://www.springframework.org/schema/data/jpa"
+    xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+	"
+	default-autowire-candidates="*Service"
+>
+
+	<context:component-scan base-package="org" annotation-config="false" use-default-filters="false" />
+	<!--
+		Annotation injection is performed before XML injection, thus the latter configuration will override the former for
+		properties wired through both approaches.
+	-->
+	<context:annotation-config />
+
+	<bean class="cz.rkr.movies.be.facade.AppConfig" />
+
+	<bean class="cz.rkr.movies.be.facade.party.PartyTestProxyImpl" id="mojeParty">
+		<!-- <property name="message.mess" value="${hello.world:Hello World proxy!}" /> -->
+		<lookup-method name="createPrototypeParty" />
+		<!-- <aop:scoped-proxy /> -->
+	</bean>
+
+	<cache:annotation-driven />
+
+	<!-- <lang:groovy id="messenger"
+		script-source="classpath:org/springframework/scripting/groovy/Messenger.groovy">
+		<lang:property name="message" value="Fiona Apple Is Just So Dreamy."/>
+		</lang:groovy>
+	-->
+	<!-- <bean id="moreComplexObject" class="example.ComplexObject">
+		results in a setAdminEmails(java.util.Properties) call
+		<property name="adminEmails">
+		<props>
+		<prop key="administrator">administrator@example.org</prop>
+		<prop key="support">support@example.org</prop>
+		<prop key="development">development@example.org</prop>
+		</props>
+		</property>
+		results in a setSomeList(java.util.List) call
+		<property name="someList">
+		<list>
+		<value>a list element followed by a reference</value>
+		<ref bean="myDataSource" />
+		</list>
+		</property>
+		results in a setSomeMap(java.util.Map) call
+		<property name="someMap">
+		<map>
+		<entry key="an entry" value="just some string" />
+		<entry key="a ref" value-ref="myDataSource" />
+		</map>
+		</property>
+		results in a setSomeSet(java.util.Set) call
+		<property name="someSet">
+		<set>
+		<value>just some string</value>
+		<ref bean="myDataSource" />
+		</set>
+		</property>
+		</bean>
+	-->
+
+	<context:property-placeholder location="classpath:spring/jdbc.properties" />
+	<context:property-override location="classpath:spring/override.properties" />
+	
+</beans>

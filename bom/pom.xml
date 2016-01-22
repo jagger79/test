@@ -343,10 +343,8 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-<!--
 				<module>../bom.be</module>
 				<module>../bom.fe</module>
--->
 			</modules>
 		</profile>
 

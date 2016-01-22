@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>cz.rkr.movies.bom</groupId>
+		<artifactId>be</artifactId>
+		<version>${project.version}</version>
+		<relativePath>../bom.be/pom.xml</relativePath>
+	</parent>
+
+	<groupId>cz.rkr.movies.be</groupId>
+	<artifactId>war</artifactId>
+	<name>${project.groupId}.${project.artifactId}</name>
+	<packaging>war</packaging>
+
+	<properties>
+		<mwhome>/opt/rkr/work/weblogic/wls12210</mwhome>
+	</properties>
+
+	<build>
+		<finalName>${project.name}-${project.version}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.oracle.weblogic</groupId>
+				<artifactId>weblogic-maven-plugin</artifactId>
+				<version>12.2.1-0-0</version>
+				<configuration>
+					<adminurl>t3://127.0.0.1:7001</adminurl>
+					<user>weblogic</user>
+					<password>profik123</password>
+					<middlewareHome>${mwhome}</middlewareHome>
+					<!--The location of the file or directory to be deployed -->
+					<source>${project.build.directory}/${project.build.finalName}.${project.packaging}</source>
+					<!--The target servers where the application is deployed.
+						Here use the plugin's default value AdminServer -->
+					<!-- <targets>AdminServer</targets> -->
+					<verbose>true</verbose>
+					<name>${project.build.finalName}</name>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- musi to byt v hlavnim POMu projektu, aby to jako provided meli vsechny
+		subprojekty -->
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.spec.javax.servlet</groupId>
+			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>jaxrs-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.websocket</groupId>
+			<artifactId>jboss-websocket-api_1.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+		</dependency>
+
+		<!--
+			<dependency>
+			<groupId>org.jboss.spec.javax.transaction</groupId>
+			<artifactId>jboss-transaction-api_1.2_spec</artifactId>
+			<scope>provided</scope>
+			</dependency>
+			<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.2_spec</artifactId>
+			<scope>provided</scope>
+			</dependency>
+			<dependency>
+			<groupId>org.jboss.spec.javax.jms</groupId>
+			<artifactId>jboss-jms-api_2.0_spec</artifactId>
+			<scope>provided</scope>
+			</dependency>
+			<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+			</dependency>
+			<dependency>
+			<groupId>org.jboss.spec.javax.annotation</groupId>
+			<artifactId>jboss-annotations-api_1.2_spec</artifactId>
+			<scope>provided</scope>
+			</dependency>
+		-->
+		<dependency>
+			<groupId>cz.rkr.movies.be</groupId>
+			<artifactId>facade</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+
+
+</project>

@@ -1,0 +1,43 @@
+
+   <p>Nothing here {{'yet' + '!'}}</p>
+   <p>Vypocet {{1+2}}</p>
+
+<p>Total number of phones: {{phones.length}}</p>
+
+<p>Hello, {{name}}!</p>
+<table>
+  <tr><th>row number</th></tr>
+  <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
+</table>
+
+Sort by:
+<select ng-model="orderProp">
+  <option value="name">Alphabetical</option>
+  <option value="-age">Newest</option>
+</select>
+	<p>Order by: {{orderProp}}</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="query">
+	<p>Google Phone Gallery: {{query}}</p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail phone-listing">
+            <a href="#/phones/{{phone.id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
+            <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+            <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+<pre>{{phones | filter:query | orderBy:orderProp | json}}</pre>

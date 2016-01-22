@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+
+	<datasource jndi-name="java:jboss/datasources/NotesDS" pool-name="notes-db-poool" enabled="true"
+		use-java-context="true">
+		<connection-url>jdbc:oracle:thin:@localhost:1521:rkr</connection-url>
+		<!-- <driver-class>oracle.jdbc.OracleDriver</driver-class> -->
+		<driver>oracle</driver>
+		<security>
+			<user-name>c##rkr</user-name>
+			<password>rkr</password>
+		</security>
+	</datasource>
+
+</datasources>
