@@ -11,12 +11,12 @@
 		<relativePath>../bom.base/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>movies</artifactId>
+	<artifactId>template</artifactId>
 	<name>${project.groupId}.${project.artifactId}</name>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<description>Prehravani filmu z webu</description>
+	<description>template pro nastaveni springu a projektu</description>
 	<url>http://filmy.troubove.cz</url>
 	<inceptionYear>2016</inceptionYear>
 
