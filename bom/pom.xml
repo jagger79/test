@@ -355,7 +355,6 @@
 					<name>modules</name>
 					<value>backend</value>
 				</property>
-				<activeByDefault>true</activeByDefault>
 			</activation>
 			<!--
 				<modules>
