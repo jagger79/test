@@ -254,6 +254,13 @@
 				<version>2.2.4.RELEASE</version>
 			</dependency>
 
+			<!-- CACHE facility -->
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache</artifactId>
+				<version>2.10.1</version>
+			</dependency>
+
 			<dependency>
 				<groupId>javax.mail</groupId>
 				<artifactId>mail</artifactId>
@@ -343,10 +350,10 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-<!--
-				<module>../bom.be</module>
-				<module>../bom.fe</module>
--->
+				<!--
+					<module>../bom.be</module>
+					<module>../bom.fe</module>
+				-->
 			</modules>
 		</profile>
 
