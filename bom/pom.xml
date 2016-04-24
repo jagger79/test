@@ -277,6 +277,13 @@
 				<version>5.2.2.Final</version>
 			</dependency>
 
+			<!-- SPEECH API facility -->
+			<dependency>
+				<groupId>com.ivona</groupId>
+				<artifactId>ivona-speechcloud-sdk-java</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+
 			<!-- LOGGING facility -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -365,13 +372,9 @@
 					<value>backend</value>
 				</property>
 			</activation>
-			<!--
-				<modules>
-				<module>../cz.rkr.notes.test</module>
-				<module>../cz.rkr.notes.bom.application</module>
-				<module>../cz.rkr.notes.bom.ear</module>
-				</modules>
-			-->
+			<modules>
+				<module>../bom.be</module>
+			</modules>
 		</profile>
 
 	</profiles>

@@ -6,13 +6,13 @@
 
 	<parent>
 		<groupId>cz.rkr</groupId>
-		<artifactId>movies</artifactId>
+		<artifactId>template</artifactId>
 		<version>${project.version}</version>
 		<relativePath>../bom/pom.xml</relativePath>
 	</parent>
 
-	<groupId>cz.rkr.movies.bom</groupId>
-	<artifactId>be</artifactId>
+	<groupId>cz.rkr.template.be</groupId>
+	<artifactId>bom</artifactId>
 	<name>${project.groupId}.${project.artifactId}</name>
 	<packaging>pom</packaging>
 
@@ -26,6 +26,7 @@
 	<!-- musi to byt v hlavnim POMu projektu, aby to jako provided meli vsechny
 		subprojekty -->
 	<dependencies>
+
 		<!--
 			<dependency>
 			<groupId>org.jboss.spec.javax.transaction</groupId>
@@ -57,7 +58,7 @@
 
 	<modules>
 		<module>../be.facade</module>
-		<module>../be.war</module>
+		<!-- <module>../be.war</module> -->
 	</modules>
 
 </project>

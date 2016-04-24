@@ -85,6 +85,7 @@
     <logger name="org.dozer" level="info" />
 	-->
     <logger name="cz" level="debug" />
+    <logger name="com.ivona" level="debug" />
 
     <root>
         <level value="info" />

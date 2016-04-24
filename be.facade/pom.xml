@@ -5,13 +5,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>cz.rkr.movies.bom</groupId>
-		<artifactId>be</artifactId>
+		<groupId>cz.rkr.template.be</groupId>
+		<artifactId>bom</artifactId>
 		<version>${project.version}</version>
 		<relativePath>../bom.be/pom.xml</relativePath>
 	</parent>
 
-	<groupId>cz.rkr.movies.be</groupId>
 	<artifactId>facade</artifactId>
 	<name>${project.groupId}.${project.artifactId}</name>
 	<packaging>jar</packaging>
@@ -21,6 +20,11 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.ivona</groupId>
+			<artifactId>ivona-speechcloud-sdk-java</artifactId>
+		</dependency>
+
 		<!-- SPRING CORE layer -->
 		<dependency>
 			<groupId>org.springframework</groupId>
